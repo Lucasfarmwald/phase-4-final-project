@@ -9,7 +9,7 @@ function CreateNewUsers() {
     setName(e.target.value);
   }
 
-  const handleSubmit = async (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     const body = { name: name };
     const headers = {
@@ -23,7 +23,7 @@ function CreateNewUsers() {
     };
     await fetch("http://localhost:3000/users", options);
     setName("");
-    navigate("/");
+    
   };
 
   return (
