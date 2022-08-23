@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
   
-  
-  resources :comments
-  resources :blogs
- 
-  resources :users
-  
-  
+  resources :users, only: [:create, :destroy]
+  resources :blogs, only: [:create, :index, :destroy]   
+  resources :comments, only: [:create, :index, :destroy]
 
-  post "/signup", to: "users#create"
-  get "/me", to: "users#show"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  
+  post "login", to: "sessions#login"
+  delete "logout", to: "sessions#destroy"
 
   
   # Routing logic: fallback requests for React Router.

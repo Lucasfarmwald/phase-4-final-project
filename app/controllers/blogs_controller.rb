@@ -9,9 +9,9 @@ class BlogsController < ApplicationController
   end
 
   # GET /blogs/1
-  def show
-    render json: @blog
-  end
+  # def show
+  #   render json: @blog
+  # end
 
   # POST /blogs
   def create
@@ -25,13 +25,13 @@ class BlogsController < ApplicationController
   end
 
   # PATCH/PUT /blogs/1
-  def update
-    if @blog.update(blog_params)
-      render json: @blog
-    else
-      render json: @blog.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @blog.update(blog_params)
+  #     render json: @blog
+  #   else
+  #     render json: @blog.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /blogs/1
   def destroy

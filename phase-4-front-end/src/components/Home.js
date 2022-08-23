@@ -4,13 +4,13 @@ function Home() {
   const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/posts")
+    fetch("http://localhost:4000/blogs")
       .then((response) => response.json())
       .then((posts) => setAllPosts(posts));
   }, []);
 
   const foundPosts = allPosts.map((post) => (
-    <div>
+    <div key={post.id}>
       {post.title}
       {post.body}
     </div>
