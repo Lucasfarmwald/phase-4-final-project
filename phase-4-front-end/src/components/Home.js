@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Home() {
-  const [allPosts, setAllPosts] = useState([]);
+  const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/blogs")
+    fetch("http://localhost:4000/properties")
       .then((response) => response.json())
-      .then((posts) => setAllPosts(posts));
+      .then((properties) => setProperties(properties));
   }, []);
 
-  const foundPosts = allPosts.map((post) => (
-    <div key={post.id}>
-      {post.title}
-      {post.body}
+  const foundProperties = properties.map((p) => (
+    <div key={p.id}>
+      <img src={p.image_url} alt="pic of house" />
+      <h1>{p.title}</h1>
+      <h2>{p.description}</h2>
+      <h2>{p.address}</h2>
+      <p>{p.id}</p>
     </div>
   ));
-  return <div>{foundPosts}</div>;
+
+  return <div>{foundProperties}</div>;
 }
 
 export default Home;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit(e) {
-    const userInfo = { email, password };
+    const userInfo = { username, password };
     e.preventDefault();
     fetch("http://localhost:4000/login", {
       method: "POST",
@@ -17,7 +17,7 @@ export default function Login() {
       if (resp.ok) {
         resp.json().then((data) => {
           console.log("Login was successful", data);
-          setEmail("");
+          setUsername("");
           setPassword("");
         });
       } else {
@@ -37,10 +37,10 @@ export default function Login() {
     <div>
       <form onSubmit={handleSubmit}>
         <input
-          name="email"
-          value={email}
-          placeholder="enter email"
-          onChange={(e) => setEmail(e.target.value)}
+          name="username"
+          value={username}
+          placeholder="enter username"
+          onChange={(e) => setUsername(e.target.value)}
         ></input>
         <input
           name="password"

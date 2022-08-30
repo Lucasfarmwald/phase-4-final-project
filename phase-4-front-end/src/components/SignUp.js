@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 
 export default function SignUp() {
-  const [first_name, setFirst_name] = useState("");
-  const [last_name, setLast_name] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     const user = {
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
+      username: username,
       password: password,
       passwordConfirmation: passwordConfirmation,
     };
@@ -23,6 +19,9 @@ export default function SignUp() {
       },
       body: JSON.stringify(user),
     });
+    setUsername("");
+    setPassword("");
+    setPasswordConfirmation("");
   }
 
   return (
@@ -30,24 +29,10 @@ export default function SignUp() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="firstname"
-          value={first_name}
-          onChange={(e) => setFirst_name(e.target.value)}
+          name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           placeholder="First Name"
-        ></input>
-        <input
-          type="text"
-          name="lastname"
-          value={last_name}
-          onChange={(e) => setLast_name(e.target.value)}
-          placeholder="Last Name"
-        ></input>
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
         ></input>
         <input
           type="text"

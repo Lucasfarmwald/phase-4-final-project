@@ -1,18 +1,20 @@
 class SessionsController < ApplicationController
-    def login
-        user = User.find_by(email: params[:user, :email])
-        if user.authenticate(params[:password])
-        render json: {message: "succesful login", user: user}, status: 200
+
+    def create
+        user = User.find_by(username: params["username"]).try(:authenticate, params["password"])
+        
+        if user
+            session[:user_id] = user.id
+            render json: {status: :created}
         else
-          render json: { error: "Invalid username and password" },status: :unprocessable_entity
+            render json: { status: 401 }
         end
-      end
+    end
 
-    
+   
 
-      def destroy
-        session.delete :user_id
-        head :no_content
-      end
-    
+    def logout
+        reset_session
+        render json: {status: 200, logged_out: true}
+    end
 end
