@@ -17,7 +17,7 @@ function CreateNewReviews() {
       headers,
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:4000/reviews", options);
+    fetch("/reviews", options);
     setReview("");
     setUser_id("");
     setProperty_id("");
@@ -26,10 +26,11 @@ function CreateNewReviews() {
   return (
     <div className="newReview">
       <form style={{ textAlign: "center" }} onSubmit={handleSubmit}>
-        <label> new user </label>
+        <label> Create a review </label>
         <input
           type="text"
           value={review}
+          placeholder="review"
           autoFocus={true}
           onChange={(e) => setReview(e.target.value)}
         ></input>

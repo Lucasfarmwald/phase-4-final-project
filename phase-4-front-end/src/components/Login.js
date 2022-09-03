@@ -7,7 +7,7 @@ export default function Login() {
   function handleSubmit(e) {
     const userInfo = { username, password };
     e.preventDefault();
-    fetch("http://localhost:4000/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -28,7 +28,7 @@ export default function Login() {
 
   function handleLogout(e) {
     e.preventDefault();
-    fetch("http://localhost:4000/logout", {
+    fetch("/logout", {
       method: "DELETE",
     }).then(console.log("Logged out succesfully"));
   }

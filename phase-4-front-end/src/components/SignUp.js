@@ -12,7 +12,7 @@ export default function SignUp() {
       password: password,
       passwordConfirmation: passwordConfirmation,
     };
-    fetch("http://localhost:4000/users", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -25,14 +25,14 @@ export default function SignUp() {
   }
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="First Name"
+          placeholder="Username"
         ></input>
         <input
           type="text"
