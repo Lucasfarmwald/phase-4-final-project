@@ -8,16 +8,14 @@ function CreateNewReviews() {
   function handleSubmit(e) {
     e.preventDefault();
     const body = { review: review, user_id: user_id, property_id: property_id };
-    const headers = {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    };
-    const options = {
+
+    fetch("/reviews", {
       method: "POST",
-      headers,
+      headers: {
+        "Content-type": "application/json",
+      },
       body: JSON.stringify(body),
-    };
-    fetch("/reviews", options);
+    });
     setReview("");
     setUser_id("");
     setProperty_id("");

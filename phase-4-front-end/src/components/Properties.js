@@ -9,6 +9,13 @@ export default function Properties({ user }) {
       .then((properties) => setProperties(properties));
   }, []);
 
+  function handleDelete(id) {
+    fetch(`/reviews/${id}`, {
+      method: "DELETE",
+    });
+    window.location.reload();
+  }
+
   const foundProperties = properties.map((p) => (
     <div className="property" key={p.id}>
       <img src={p.image_url} alt="pic of house" />
@@ -19,6 +26,7 @@ export default function Properties({ user }) {
         {p.reviews.map((rv) => (
           <div>
             <li>{rv.review}</li>
+            <button onClick={() => handleDelete(rv.id)}>Delete</button>
           </div>
         ))}
       </h2>
