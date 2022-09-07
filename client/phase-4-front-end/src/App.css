@@ -10,10 +10,23 @@ body {
   background-size: cover;
  
   background-repeat: no-repeat;
-  height: 140vh;
-  background-image: url("https://cdn.wallpapersafari.com/34/21/kB0Doc.jpg");
+  height: 100%;
+ 
+  
   
 }
+.div1{
+  width: 200px;
+  height: 200px;
+  size: 10px;
+  opacity: 0.6;
+  
+  border: solid red;
+  
+  
+}
+
+
 .nav {
   color: white;
   background-color: #333;
@@ -54,11 +67,11 @@ body {
 
  
   
-
+  
   width: 400px;
   padding: 3px;
   margin-left: 35%;
-  background: black;
+  background: white;
   
 }
 
@@ -66,10 +79,11 @@ body {
 
 
 .property{
-  border: 5px solid white;
-  
+  float: center;
+  border: 5px solid rgba(255, 255, 255, 0.74);
+  overflow: auto;
   display: grid;
-  background-color: grey;
+  background-color: rgba(102, 107, 99, 0.521);
   padding: 2px;
   margin: 5%;
   color: white;
@@ -93,20 +107,30 @@ body {
 }
 
 
+
 .house {
   text-align: center;
   margin-top: 10%;
+}
+.house img{
+  float: left;
+  border-radius: 25px;
+  margin: 10%;
+}
+.house h1{
+  float: center;
+  margin: 5%;
 }
 .house button{
   border-radius: 100px;
   padding: 30px;
   border-style: solid ;
-  border-color: white;
-  color: white;
+  border-color: grey;
+  color: black;
   background: none;
   border-width: 4px;
   margin: 10%;
-  opacity: 0.5;
+  
   
   
   font-size: larger;
@@ -117,7 +141,7 @@ body {
 }
 
 .house button:hover{
-  opacity: 1;
+  opacity:0.5;
 }
 .login{
   text-align: center;
