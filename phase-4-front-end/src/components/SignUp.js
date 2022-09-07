@@ -25,7 +25,7 @@ export default function SignUp() {
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="signup">
       <form onSubmit={handleSubmit}>
         <input
           type="text"

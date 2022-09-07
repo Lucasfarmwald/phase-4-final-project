@@ -52,19 +52,46 @@ body {
 
 .property img { 
 
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 300px;
-}
-
-.property{
  
   
-  justify-content: space-around;
-  margin: 2rem;
+
+  width: 400px;
+  padding: 3px;
+  margin-left: 35%;
+  background: black;
+  
+}
+
+
+
+
+.property{
+  border: 5px solid white;
+  
+  display: grid;
+  background-color: grey;
+  padding: 2px;
+  margin: 5%;
   color: white;
 }
+.property h2{
+  color: whitesmoke;
+  display: grid;
+  margin: 20px;
+  
+}
+.property h1{
+  color: whitesmoke;
+  margin-left: 3px;
+  display: grid;
+  
+}
+.property p{
+  color: whitesmoke;
+  display: grid;
+  margin-left: auto;
+}
+
 
 .house {
   text-align: center;
@@ -91,4 +118,88 @@ body {
 
 .house button:hover{
   opacity: 1;
+}
+.login{
+  text-align: center;
+}
+
+.login form input{
+  background: lightslategrey;
+  border-style: solid ;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: white;
+  padding: 1%;
+  margin: 3px;
+  margin-top: 2%;
+  color: white;
+}
+.login form button{
+  background: lightslategrey;
+  border-radius: 10px;
+  border-width: 4px;
+  padding: 1%;
+  color: white;
+  opacity: 0.8;
+  margin: 2px;
+}
+.login form button:hover{
+  opacity: 1;
+}
+.signup{
+  text-align: center;
+}
+.signup input{
+  background: lightslategrey;
+  border-style: solid ;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: white;
+  padding: 1%;
+  margin: 3px;
+  margin-top: 2%;
+  color: white;
+}
+.signup button{
+  background: lightslategrey;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: white;
+  padding: 1%;
+  color: white;
+  opacity: 1;
+  margin: 2px;
+}
+.signup button:hover{
+  opacity: 0.8;
+}
+::placeholder{
+  color: white;
+}
+.review{
+  text-align: center;
+}
+.review input{
+  background: lightslategrey;
+  border-style: solid ;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: white;
+  padding: 1%;
+  margin: 3px;
+  margin-top: 2%;
+  color: white;
+}
+.review button{
+  background: lightslategrey;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: white;
+  padding: 1%;
+  color: white;
+  opacity: 1;
+  margin: 2px;
+}
+.review button:hover{
+  opacity: 0.8;
 }

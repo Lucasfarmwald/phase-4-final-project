@@ -34,7 +34,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div className="login">
       <form onSubmit={handleSubmit}>
         <input
           name="username"
@@ -49,9 +49,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <button type="submit">login</button>
-      </form>
-      <form onSubmit={handleLogout}>
-        <button>Logout</button>
+        <button onClick={handleLogout}>logout</button>
       </form>
     </div>
   );

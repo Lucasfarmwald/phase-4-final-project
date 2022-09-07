@@ -17,9 +17,7 @@ export default function Navbar() {
           <li>
             <a href="/login">Login</a>
           </li>
-          <li>
-            <a href="/reviews">Reviews</a>
-          </li>
+
           <li>
             <a href="/properties">Properties</a>
           </li>

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Signup from "./components/SignUp";
 import Login from "./components/Login";
-import CreateNewReviews from "./components/CreateReview";
+
 import Navbar from "./components/Navbar";
 import Properties from "./components/Properties";
 
@@ -34,7 +34,6 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/properties" element={<Properties user={user} />} />
-          <Route path="/reviews" element={<CreateNewReviews />} />
         </Routes>
       </div>
     </BrowserRouter>
