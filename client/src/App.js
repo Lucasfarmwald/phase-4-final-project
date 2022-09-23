@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import Signup from "./components/SignUp";
+import Signup from "./components/Signup";
 import Login from "./components/Login";
 
 import Navbar from "./components/Navbar";
