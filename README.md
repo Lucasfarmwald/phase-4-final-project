@@ -1,4 +1,4 @@
-# Project Template: React/Rails API
+# Haus
 
 ## Description
 Haus is a mock property rental application. My family owns Airbnb properties, however they aren't to thrilled with some of
