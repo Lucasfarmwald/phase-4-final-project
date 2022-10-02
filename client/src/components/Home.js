@@ -10,6 +10,7 @@ function Home() {
 
   return (
     <div className="house">
+      Hi
       <form onSubmit={handleChange}>
         <button>
           <span id="span">Let's find a Haus...</span>
