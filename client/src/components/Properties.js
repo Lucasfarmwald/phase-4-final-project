@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-export default function Properties({ createNewReviews }) {
+export default function Properties() {
   const [properties, setProperties] = useState([]);
   const [review, setReview] = useState("");
   const [user_id, setUser_id] = useState("");
@@ -37,7 +38,9 @@ export default function Properties({ createNewReviews }) {
   const foundProperties = properties.map((p) => (
     <div key={p.id} className="property">
       <img src={p.image_url} alt="pic of house" />
-      <h1>{p.title}</h1>
+      <Link to={`/properties/${p.id}`}>
+        <h1>{p.title}</h1>
+      </Link>
       <h2>{p.description}</h2>
       <h2>{p.address}</h2>
       <h2>
@@ -48,14 +51,6 @@ export default function Properties({ createNewReviews }) {
           </div>
         ))}
       </h2>
-      <p>
-        <span>Property Id</span> : {p.id}
-      </p>
-    </div>
-  ));
-
-  return (
-    <div>
       <div className="review">
         <form onSubmit={handleSubmit}>
           <input
@@ -82,6 +77,14 @@ export default function Properties({ createNewReviews }) {
           <button type="submit">Create new review</button>
         </form>
       </div>
+      <p>
+        <span>Property Id</span> : {p.id}
+      </p>
+    </div>
+  ));
+
+  return (
+    <div>
       <div>{foundProperties}</div>
     </div>
   );
