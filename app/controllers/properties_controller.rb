@@ -8,5 +8,11 @@ class PropertiesController < ApplicationController
         render json: properties
     end
 
+    def show
+        properties = Property.find(params[:id])
+
+        render json: properties
+    end
+
    
 end
