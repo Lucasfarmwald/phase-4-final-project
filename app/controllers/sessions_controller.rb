@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+   skip_before_action :authenticate_user, only: [:create]
     def create
        
         user = User.find_by(username: params["username"]).try(:authenticate, params["password"])
@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
    
 
     def destroy
-        reset_session
-        render json: {status: 200, logged_out: true}
+        session.delete(:user_id)
     end
 end

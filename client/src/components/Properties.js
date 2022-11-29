@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useHistory } from "react";
 import { Link } from "react-router-dom";
 
 export default function Properties() {
@@ -6,19 +6,13 @@ export default function Properties() {
   const [review, setReview] = useState("");
   const [user_id, setUser_id] = useState("");
   const [property_id, setProperty_id] = useState("");
+  const [errors, setErrors] = useState(false);
 
   useEffect(() => {
     fetch("/properties")
       .then((response) => response.json())
       .then((properties) => setProperties(properties));
   }, []);
-
-  function handleDelete(id) {
-    fetch(`/reviews/${id}`, {
-      method: "DELETE",
-    });
-    window.location.reload();
-  }
 
   function handleSubmit() {
     const body = { review: review, user_id: user_id, property_id: property_id };
@@ -35,6 +29,22 @@ export default function Properties() {
     setProperty_id("");
   }
 
+  function handleDelete(id) {
+    fetch(`/reviews/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    }).then((res) => {
+      if (res.ok) {
+      } else {
+        res
+          .json()
+          .then((data) =>
+            setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
+          );
+      }
+    });
+  }
+
   const foundProperties = properties.map((p) => (
     <div key={p.id} className="property">
       <img src={p.image_url} alt="pic of house" />
@@ -48,6 +58,7 @@ export default function Properties() {
           <div>
             <li>{rv.review}</li>
             <button onClick={() => handleDelete(rv.id)}>Delete</button>
+            <p>{errors}</p>
           </div>
         ))}
       </h2>

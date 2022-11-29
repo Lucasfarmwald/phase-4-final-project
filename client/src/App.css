@@ -45,6 +45,9 @@
     background-color: #555;
   
   }
+  .owner {
+    color: white;
+  }
   
   .nav li.hover {
     background-color: bisque;
@@ -202,4 +205,10 @@
   }
   .review button:hover{
     opacity: 0.8;
+  }
+  .update {
+    color: white;
+  }
+  .update input{
+    background-color: grey;
   }

@@ -1,23 +1,40 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
+import EditReview from "./EditReview";
 function Home() {
-  let navigate = useNavigate();
+  const [reviews, setReviews] = useState([]);
+  const [editId, setEditId] = useState(null);
 
-  function handleChange() {
-    navigate("/properties");
-  }
+  useEffect(() => {
+    fetch("/reviews")
+      .then((response) => response.json())
+      .then((reviews) => setReviews(reviews));
+  }, []);
 
-  return (
-    <div className="house">
-      Hi
-      <form onSubmit={handleChange}>
-        <button>
-          <span id="span">Let's find a Haus...</span>
-        </button>
-      </form>
-    </div>
-  );
+  const allReviews = reviews.map((single) => {
+    if (editId === single.id) {
+      return (
+        <div className="update">
+          <EditReview
+            setEditId={setEditId}
+            single={single}
+            setReviews={setReviews}
+            reviews={reviews}
+          />
+          <button onClick={() => setEditId(null)}>cancel</button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="update">
+          <h2>{single.review}</h2>
+          <button onClick={() => setEditId(single.id)}>edit</button>
+        </div>
+      );
+    }
+  });
+
+  return <div className="house">{allReviews}</div>;
 }
 
 export default Home;

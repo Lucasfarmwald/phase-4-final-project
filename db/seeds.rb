@@ -6,15 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-lucas = User.create(username: "lucas", password: "lucaslucas")
-ryan = User.create(username: "Ryan", password: "ryanryan")
-hannah = User.create(username: "Hannah", password: "hannahhannah")
-
-Property.create(address: "first address 123", description: "This is a very nice house", title: "Grand house", image_url: "https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg")
-Property.create(address: "2nd address 123", description: "This is a very nice house", title: "Grand house", image_url: "https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg")
-Property.create(address: "3rd address 123", description: "This is a very nice house", title: "Grand house", image_url: "https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg")
+lucas = User.create!(username: "lucas", password: "lucaslucas")
+ryan = User.create!(username: "Ryan", password: "ryanryan")
+hannah = User.create!(username: "Hannah", password: "hannahhannah")
 
 
-lucas.reviews.create(review: "first review", property_id: 2)
-hannah.reviews.create(review: "second review", property_id: 2)
-ryan.reviews.create(review: "third review", property_id: 2)
+
+p1 = Property.create!(address: "first address 123", user_id: 1,  description: "This is a very nice house", title: "Grand house", image_url: "https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg")
+p2 = Property.create!(address: "2nd address 123", user_id: 1,  description: "This is a very nice house", title: "Grand house", image_url: "https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg")
+p3 = Property.create!(address: "3rd address 123", user_id: 1,  description: "This is a very nice house", title: "Grand house", image_url: "https://www.jamesedition.com/stories/wp-content/uploads/2022/03/mansions_main_fin.jpg")
+
+
+
+lucas.reviews.create!(review: "first review", property_id: 2)
+hannah.reviews.create!(review: "second review", property_id: 2)
+ryan.reviews.create!(review: "third review", property_id: 2)

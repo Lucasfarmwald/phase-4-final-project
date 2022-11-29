@@ -31,6 +31,8 @@ export default function Login() {
     fetch("/logout", {
       method: "DELETE",
     }).then(console.log("Logged out succesfully"));
+    setPassword("");
+    setUsername("");
   }
 
   return (

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    skip_before_action :authenticate_user, only: [:create]
     def index
         users = User.all
 
@@ -18,6 +18,11 @@ class UsersController < ApplicationController
         else
             render json: { status: 500 }
         end
+    end
+
+    def index
+       users = User.all
+       render json: users
     end
 
     def show

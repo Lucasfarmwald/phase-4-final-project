@@ -21,6 +21,10 @@ export default function Navbar() {
           <li>
             <a href="/properties">Properties</a>
           </li>
+
+          <li>
+            <a href="/reviews">Edit</a>
+          </li>
         </ul>
       </nav>
     </div>
