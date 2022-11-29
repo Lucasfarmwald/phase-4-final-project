@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useHistory } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Properties() {
   const [properties, setProperties] = useState([]);
-  const [review, setReview] = useState("");
+  const [review, setReview] = useState([]);
   const [user_id, setUser_id] = useState("");
   const [property_id, setProperty_id] = useState("");
-  const [errors, setErrors] = useState(false);
 
   useEffect(() => {
     fetch("/properties")
       .then((response) => response.json())
       .then((properties) => setProperties(properties));
-  }, []);
+  }, [review]);
 
   function handleSubmit() {
     const body = { review: review, user_id: user_id, property_id: property_id };
@@ -33,16 +32,9 @@ export default function Properties() {
     fetch(`/reviews/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-    }).then((res) => {
-      if (res.ok) {
-      } else {
-        res
-          .json()
-          .then((data) =>
-            setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
-          );
-      }
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => setReview(data));
   }
 
   const foundProperties = properties.map((p) => (
@@ -58,7 +50,6 @@ export default function Properties() {
           <div>
             <li>{rv.review}</li>
             <button onClick={() => handleDelete(rv.id)}>Delete</button>
-            <p>{errors}</p>
           </div>
         ))}
       </h2>

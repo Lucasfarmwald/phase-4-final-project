@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
         
         @review.destroy!
     
-        render json: review
+        render json: @review
     end
 
     def update
