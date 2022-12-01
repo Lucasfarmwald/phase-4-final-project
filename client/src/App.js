@@ -7,6 +7,7 @@ import EditReview from "./components/EditReview";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Properties from "./components/Properties";
+import CreateProperty from "./components/CreateProperty";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -34,6 +35,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/reviews" element={<EditReview />} />
+          <Route path="/create" element={<CreateProperty />} />
           <Route path="/properties" element={<Properties user={user} />} />
         </Routes>
       </div>

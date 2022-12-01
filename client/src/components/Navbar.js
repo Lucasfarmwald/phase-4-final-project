@@ -25,6 +25,9 @@ export default function Navbar() {
           <li>
             <a href="/reviews">Edit</a>
           </li>
+          <li>
+            <a href="/create">Create new property</a>
+          </li>
         </ul>
       </nav>
     </div>

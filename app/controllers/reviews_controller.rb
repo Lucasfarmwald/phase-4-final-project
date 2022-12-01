@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
     # before_action :authorize
     # skip_before_action :authorize, only: [:index, :destroy]
     before_action :require_permission, only: [:destroy, :update]
-    skip_before_action :authenticate_user, only: [:index, :update]
+    skip_before_action :authenticate_user, only: [:index, :update, :find_review]
     
     def index
         reviews = Review.all
@@ -33,6 +33,11 @@ class ReviewsController < ApplicationController
         
         
         render json: @review
+    end
+    def find_review 
+        # byebug
+        review = Review.select{|review| review.review.include? params[:search]}
+        render json: review
     end
 
     private
