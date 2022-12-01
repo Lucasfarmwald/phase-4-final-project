@@ -7,6 +7,7 @@ export default function CreateProperty() {
   const [image_url, setImage_url] = useState([]);
 
   function handleSubmit(e) {
+    const body = { title, description, image_url };
     e.preventDefault();
     fetch("/properties", {
       method: "POST",
@@ -15,9 +16,9 @@ export default function CreateProperty() {
       },
       body: JSON.stringify(body),
     });
-    setReview("");
-    setUser_id("");
-    setProperty_id("");
+    setTitle("");
+    setImage_url("");
+    setDescription("");
   }
 
   <div>
